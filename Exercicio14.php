@@ -3,33 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Exercicio 11</title>
+<title>Exercicio 14</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" >
 </head>
 <body> 
 <div class="container py-3">
-<h1>Exercicio 11</h1>
+<h1>Exercicio 14</h1>
 <form method="post">
 <div class="mb-3">
-             <h3> <label for="valor" class="form-label">Insira um numero: </label> </h3>
-              <input type="number" id="valor" name="valor" class="form-control" required="" step="any">
+              <label for="nome" class="form-label">Escreva uma palavra: </label>
+              <input type="text" id="nome" name="nome" class="form-control" required="">
             </div>
-<div class="mb-3"> 
-            <label> <h4> 
-                <?php if ($_POST) {
+<div class="mb-3">
+<?php if ($_POST){
+    $nome = strtolower($_POST["nome"]);
 
-                    $valor = $_POST["valor"];
+    if ($nome === strrev($nome)){
+        echo "ESSA PALAVRA É UM PALÍNDROMO!!";
+    }
+    else{echo "Essa palavra não é um palíndromo.";}
 
-                    echo "R$ ". number_format($valor,2,",",".");
-                }  
-                
-                
-                
-                
-                ?>
+} 
 
+?>
 
-            </h4> </label>
 
 </div>
 

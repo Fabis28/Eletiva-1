@@ -3,16 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercicio 10</title>
 </head>
-<body>
-    <h1> Exercicio 10 </h1>
-    <form method="post" action="resposta10.php"> 
-        <label for="valor1"> Informe o valor do raio do círculo: </label>
-        <input type="number" id="valor1" name="valor1" step="any"> 
+<body> <form method="post"> 
+    <h3< <label for="nome"> Informe seu nome completo:  </label> </h3>
+    <input type="text" name="nome" id="nome"> 
 
-        <button type=submit> Enviar </button>
-    </form>
+    <label> <h4> 
+            <?php   if ($_POST){
+                $nome = $_POST["nome"];
+                $nomes = explode(" ", $nome);
+
+                for ($i = 0; $i < count($nomes); $i++) {
+                    $nomes[$i] = substr($nomes[$i], 0, 1);
+                }
+                $sigla = implode(".", $nomes);
+                echo "As siglas: " . $sigla;
+            } ?>
+
+
+    </h4> </label>  
+
+    <button type="submit"> Enviar </button>
+
+</form> 
     
 </body>
 </html>

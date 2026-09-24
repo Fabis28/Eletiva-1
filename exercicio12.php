@@ -6,12 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Exercicio 12 </h1>
-    <form method="post" action="resposta12.php"> 
-        <label for="valor1"> Informe o valor em metros: </label>
-        <Input type="number" id="valor1" name="valor1" step="any">
+    <form method="post"> 
+    <label for="nome"> Digite seu nick: </label> 
+    <input type="text" name="nome" id="nome"><br>
+    <?php if ($_POST){
+        $nome = $_POST["nome"];
+        $caracteres = "abcdefghijklmnopqrstuvwxyz0123456789";
+        $senha = "";
 
-        <button type="submit"> Enviar </button>
-    </form> 
+        for ($i = 0; $i < 8; $i++) {
+            $senha .= $caracteres[rand(0, strlen($caracteres)-1)];
+        }
+        echo "Nick: " . $nome ."<br>";
+        echo "Senha Aleatória: " . $senha . "<br>";
+    } 
+    
+
+
+    ?>
+
+
+    <button type="submit"> Enviar </button>
+    </form>
+    
 </body>
 </html>

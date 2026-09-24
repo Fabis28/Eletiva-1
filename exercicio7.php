@@ -1,18 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" >
 </head>
-<body>
-    <h1> Exercicio 7 </h1> 
-    <form method="post" action="resposta7.php"> 
-        <label for="valor"> Até onde deseja contar? </label>
-        <input type="number" id="valor" name="valor" step="any"> ]
+<body> 
+<div class="container py-3">
+<h1></h1>
+<form method="post">
+<div class="mb-3">
+              <label for="texto" class="form-label">Escreva uma palavra: </label>
+              <input type="text" id="texto" name="texto" class="form-control" required="">
+            </div>
+<div class="mb-3"> 
+            <label> <h4> <?php 
+                                if ($_POST){
+                                    $texto = $_POST["texto"];
 
-        <button type="submit"> Enviar </button>
-    </form>
-    
+                                    echo "Invertido fica: " . strrev($texto);
+                                }
+            ?>  </h4> </label>
+</div>
+<button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>

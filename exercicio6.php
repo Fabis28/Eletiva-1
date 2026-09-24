@@ -6,12 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Exercicio 6 </h1> 
-    <form method="post" action="resposta6.php"> 
-        <label for="valor"> Até onde deseja contar? </label>
-        <input type="number" id="valor" name="valor" step="any"> ]
+    <form method="post"> 
+        <label for="valor"> Insira o número: </label> 
+        <input type="number" id="valor" name="valor" step="any" > 
+        <br>
+            <label> <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $valor = $_POST["valor"];
 
-        <button type="submit"> Enviar </button>
+                if ($valor == (int)$valor) 
+                    { echo "É um número inteiro!";
+                }
+                else {echo "Arredondado para cima: " . ceil($valor) . "<br>"; 
+                    echo "Arredondado para baixo: " . floor($valor) . "<br>"; 
+                    echo "Arredondado de forma normal: " . round($valor);}
+
+
+            }?></label>
+        <br>
+        <button type="submit"> Enviar </button> 
     </form>
     
 </body>

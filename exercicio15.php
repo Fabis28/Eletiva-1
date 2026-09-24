@@ -1,19 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" >
 </head>
-<body>
-    <h1> Exercicio 15 </h1>
-    <form method ="post" action="resposta15.php"> 
-        <label for="valor1"> Insira o valor do produto: </label>
-        <input type="number" id="valor1" name="valor1" step="any"> 
-        <label for="valor2"> Insira o percentual do desconto: </label> 
-        <input type="number" id="valor2" name="valor2" step="any">
+<body> 
+<div class="container py-3">
+<h1>Exercicio 15</h1>
+<form method="post">
+<div class="mb-3">
+              <label for="email" class="form-label">Escreva seu email: </label>
+              <input type="email" id="email" name="email" class="form-control" required="">
+            </div>
+<div class="mb-3"> 
+<?php if($_POST){
+    $email = $_POST["email"];
+    $part = explode("@",$email);
 
-        <button type="submit"> Enviar </button>
-    </form>
+    echo "O domínio é: " . $part[1];
+}   
+
+
+?>
+
+</div>
+
+<button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>

@@ -5,13 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <h1> Exercicio 4 </h1>
-    <form method="post" action="resposta4.php"> 
-        <label for="valor1"> Insira o valor: </label>
-        <input type="number" id="valor1" name="valor1" step="any">
+<body> 
+    <form method = "post"> 
+        <label for="nome"> Informe a data: </label>
+        <input type="date" id="data" name="data" placeholder="dd-mm-aaaa"> 
+        <br>
+        <label> <?php if ($_POST)   {
+            $data = $_POST["data"];
 
-        <button type="submit"> Enviar </submit>
+            $separ = explode("-", $data);   
+
+            $Y = $separ[0];
+            $m = $separ[1];
+            $d = $separ[2];
+
+            if (checkdate($m,$d,$Y)) {
+                echo date("$d/$m/$Y"); 
+            }
+            else {echo "Data inválida!!";}
+        }
+        ?> </label>
+        <br>
+        <br>
+        <button type="submit"> Enviar </button>
     </form>
+    
 </body>
 </html>

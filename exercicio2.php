@@ -6,14 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Exercicio 2 </h1> 
-    <form method="post" action="resposta2.php"> 
-        <label for="valor1"> Insira o 1° valor </label> 
-        <input type="number" id="valor1" name="valor1" step="any">
-        <label for="valor2"> Insira o 2° valor </label> 
-        <input type="number" id="valor2" name="valor2" step="any">
-
-        <button type="submit"> Enviar </button>
-    </form>
+<form method="post">
+    <label for="nome"> Insira seu nome: </label> 
+    <input type="text" id="nome" name="nome">  <br>
+    <label> Nome em Maiúsculo: <?php if ($_POST) {$nome = $_POST["nome"]; echo strtoupper ($nome); } ?> <br> Nome em Minúsculo: <?php if ($_POST) {$nome = $_POST["nome"];} echo strtolower($nome); ?></label> 
+    <br>
+    <button type="submit"> Enviar </button> 
+</form>
 </body>
 </html>

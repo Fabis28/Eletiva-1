@@ -6,13 +6,43 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Exercicio 8 </h1> 
-    <form method="post" action="resposta8.php"> 
-        <label for="valor"> Qual número deseja fatorar? </label>
-        <input type="number" id="valor" name="valor" step="any"> ]
+    <form method="post"> 
+    <label for="frase"> Escreva uma palavra ou frase: </label>
+    <input type="text" id="frase" name="frase"> <br>
+<br>
+    <label> <?php
+    if ($_POST) {
 
-        <button type="submit"> Enviar </button>
+        /* 
+        Primeira forma.
+        $texto = strtolower($_POST["frase"]);   
+        $count = 0; 
+
+    for ($i = 0; $i < strlen($texto);$i++){
+        if ($texto[$i] == "a" || $texto[$i] == "e" || $texto[$i] == "i" || $texto[$i] == "o" || $texto[$i] == "u"){
+            $count++;
+        }
+   
+    }
+        echo "Contém: " . $count . " letras vogais.";
+}*/ 
+        $frase = strtolower($_POST["frase"]);
+
+        $count = substr_count($frase, "a");
+        $count += substr_count($frase, "e");
+        $count += substr_count($frase, "i");
+        $count += substr_count($frase, "o");
+        $count += substr_count($frase, "u");
+
+       if ($count > 1)
+       {echo "Contém: " . $count . " letras vogais!";}
+       else { echo "Contém: " . $count . " vogal.";}
+    }
+?>
+    </label>
+<br>
+    <button type="submit"> Enviar </button>
+
     </form>
-    
 </body>
 </html>
